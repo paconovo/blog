@@ -9,4 +9,9 @@ class Profile extends Model
 {
     use HasFactory;
     protected $guarded = ['id', 'crearted_at', 'updated_at'];
+
+    //relacion con profile
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
 }
