@@ -21,7 +21,7 @@ class ArticleFactory extends Factory
             'title' => $title,
             'slug' => Str::slug($title),
             'introduction' => $this->faker->realText(255),
-           // 'image' => 'articles/' .$this->faker->image('public/storge/articles', 640, 480, null, false),
+            'image' => '', //'articles/' .$this->faker->image('public/storge/articles', 640, 480, null, false),
             'body' => $this->faker->text(2000),
             'status' => $this->faker->boolean(),
             'user_id' => User::all()->random()->id,

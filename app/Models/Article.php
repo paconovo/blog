@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Article extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'crearted_at', 'updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //relacion con user
     public function user(){
@@ -23,5 +23,9 @@ class Article extends Model
      //relacion con Categorias
      public function category(){
         return $this->belongsTo(Category::class);
+    }
+
+    public function getRouteKeyName(){
+        return 'slug';
     }
 }

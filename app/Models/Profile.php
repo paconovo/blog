@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Profile extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'crearted_at', 'updated_at'];
+    protected $guarded = ['id', 'created_at', 'updated_at'];
 
     //relacion con profile
     public function user(){

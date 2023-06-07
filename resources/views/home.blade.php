@@ -14,7 +14,9 @@
                         </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
+                    <pre>
+                    {{ var_dump($categories) }}
+                    </pre>
                 </div>
             </div>
         </div>
