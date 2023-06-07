@@ -18,7 +18,7 @@
                data-bs-toggle="dropdown" aria-expanded="false">
 
                 <img src="{{ Auth::user()->profile->photo ? asset('storage/' . Auth::user()->profile->photo)
-                : asset('img/user-defult.png') }}" alt="Profile" class="img-profile">
+                : asset('img/user-default.png') }}" alt="Profile" class="img-profile">
           
                 <span class="name-user">{{ Auth::user()->full_name }}</span>
             </a>
