@@ -40,3 +40,4 @@
 <div class="links-paginate">
     {{ $articles->links() }}
 </div>
+@endsection
