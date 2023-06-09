@@ -47,7 +47,7 @@ class CommentController extends Controller
     public function store(CommentRequest $request)
     {
         $result = Comment::where('user_id', Auth::user()->id)
-                        ->where('article_id', $request->article_id)->exits();
+                        ->where('article_id', $request->article_id)->exists();
         
         $article = Article::select('status', 'slug')->find($request->article_id);
 
@@ -61,7 +61,7 @@ class CommentController extends Controller
             return redirect()->action([ArticleController::class, 'show'], [$article->slug]);
         } else {
             return redirect()->action([ArticleController::class, 'show'], [$article->slug])
-                                ->with('success-error', 'Solo puedes comenta un vez');
+                                ->with('success-error', 'Solo puedes comentar un vez');
         }
     }
 

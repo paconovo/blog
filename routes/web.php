@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
 
 //principal
@@ -39,6 +40,6 @@ Route::resource('profiles', ProfileController::class)
 
 Route::get('/article/{article}', [ArticleController::class, 'show'])->name('articles.show');
 Route::get('/category/{category}', [CategoryController::class, 'detail'])->name('categories.detail');
-Route::get('/comment', [CommentController::class, 'store'])->name('comments.store');
+Route::post('/comment', [CommentController::class, 'store'])->name('comments.store');
 
 Auth::routes();
