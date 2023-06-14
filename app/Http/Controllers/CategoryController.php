@@ -120,6 +120,9 @@ class CategoryController extends Controller
     }
 
     public function detail(Category $category){
+
+        $this->authorize('published', $category);
+        
         $articles = Article::where([
             ['category_id', $category->id],
             ['status', '1']
@@ -130,6 +133,6 @@ class CategoryController extends Controller
         $navbar = Category::where([['status', '1'],['is_featured', '1']])
         ->simplePaginate(3);
 
-        return view('suscriber.categories.detail', compact('articles', 'category', 'navbar'));
+        return view('subscriber.categories.detail', compact('articles', 'category', 'navbar'));
     }
 }

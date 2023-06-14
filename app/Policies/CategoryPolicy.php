@@ -2,16 +2,16 @@
 
 namespace App\Policies;
 
-use App\Models\Article;
+use App\Models\Category;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class ArticlePolicy
+class CategoryPolicy
 {
     use HandlesAuthorization;
 
-    public function published(?User $user, Article $article){
-        if($article->status == 1){
+    public function published(?User $user, Category $category){
+        if($category->status == 1){
             return true;
         } else {
             return false;
