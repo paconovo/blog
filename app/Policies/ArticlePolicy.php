@@ -10,6 +10,21 @@ class ArticlePolicy
 {
     use HandlesAuthorization;
 
+    public function view(User $user, Article $article){
+
+        return $user->id == $article->user_id;
+    }
+
+    public function update(User $user, Article $article){
+
+        return $user->id == $article->user_id;
+    }
+
+    public function delete(User $user, Article $article){
+
+        return $user->id == $article->user_id;
+    }
+
     public function published(?User $user, Article $article){
         if($article->status == 1){
             return true;

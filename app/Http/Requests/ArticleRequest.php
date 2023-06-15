@@ -23,7 +23,7 @@ class ArticleRequest extends FormRequest
      */
     public function rules()
     {
-        $slug = request()->isMethod('put') ? 'require|unique:articles,slug,'.$this->id : 'required|unique:articles';
+        $slug = request()->isMethod('put') ? 'required|unique:articles,slug,'.$this->id : 'required|unique:articles';
         $image = request()->isMethod('put') ? 'nullable|mimes:jpeg,jpg,png,gif,svg|max:8000' : 'image'; //'required|image';
         
         return [
