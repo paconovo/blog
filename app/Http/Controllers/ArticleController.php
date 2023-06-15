@@ -24,7 +24,7 @@ class ArticleController extends Controller
             ->orderBy('id', 'desc')
             ->simplePaginate(10);
         
-        return view('admin.articles.index', compact('rticles'));
+        return view('admin.articles.index', compact('articles'));
     }
 
     /**

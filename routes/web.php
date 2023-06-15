@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\CategoryController;
@@ -10,6 +11,27 @@ use App\Http\Controllers\CategoryController;
 //principal
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/all', [HomeController::class, 'all'])->name('home.all');
+
+//Administrador
+Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+
+//Rutas de admin
+Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
+        //Articulos
+        Route::resource('articles', 'ArticleController')
+        ->except('show')
+        ->names('articles');
+
+        //categorías
+        Route::resource('categories', 'CategoryController')
+        ->except('show')
+        ->names('categories');
+
+        //comentarios
+        Route::resource('comments', 'CommentController')
+        ->only('index', 'destroy')
+        ->names('comments');
+});
 
 //Articulos
 
