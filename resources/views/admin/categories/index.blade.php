@@ -8,6 +8,20 @@
 
 @section('content')
 
+@if(session('success-create'))
+<div class="alert alert-info">
+    {{ session('success-create') }}
+</div>
+@elseif(session('success-update'))
+<div class="alert alert-info">
+    {{ session('success-update') }}
+</div>
+@elseif(session('success-delete'))
+<div class="alert alert-info">
+    {{ session('success-delete') }}
+</div>
+@endif
+
 <div class="card">
     
     <div class="card-header">
@@ -25,16 +39,18 @@
             </thead>
 
             <tbody>
-                
+                @foreach($categories as $category)                
                 <tr>
-                    <td></td>
+                    <td>{{ $category->name }}</td>
                     <td>
                         <input type="checkbox" name="status" id="status" class="form-check-input ml-3"
-                            disabled>
+                        {{ $category->status ? 'checked="checked"' : '' }}
+                        disabled>
                     </td>
                     <td>
                         <input type="checkbox" name="is_featured" id="is_featured" class="form-check-input ml-4"
-                            disabled>
+                        {{ $category->is_featured ? 'checked="checked"' : '' }}
+                        disabled>
                     </td>
 
 
@@ -48,11 +64,12 @@
                     </td>
 
                 </tr>
+                @endforeach
             </tbody>
         </table>
 
         <div class="text-center mt-3">
-            
+            {{ $categories->links()}}      
         </div>
     </div>
 </div>

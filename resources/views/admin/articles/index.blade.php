@@ -21,6 +21,7 @@
     {{ session('success-delete') }}
 </div>
 @endif
+
 <div class="card">
     <div class="card-header">
         <a class="btn btn-primary" href="{{ route('articles.create') }}">Crear artículo</a>
