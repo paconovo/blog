@@ -60,6 +60,8 @@ class ProfileController extends Controller
      */
     public function edit(Profile $profile)
     {
+        $this->authorize('view', $profile);
+
         return view('subscriber.profiles.edit', compact('profile'));
     }
 
@@ -72,6 +74,8 @@ class ProfileController extends Controller
      */
     public function update(ProfileRequest $request, Profile $profile)
     {
+        $this->authorize('update', $profile);
+
         $user = Auth::user();
 
         if($request->hasFile('photo')){
