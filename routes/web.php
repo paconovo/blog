@@ -14,7 +14,9 @@ Route::get('/', [HomeController::class, 'index'])->name('home.index');
 Route::get('/all', [HomeController::class, 'all'])->name('home.all');
 
 //Administrador
-Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+Route::get('/admin', [AdminController::class, 'index'])
+                ->middleware('can:admin.index')
+                ->name('admin.index');
 
 //Rutas de admin
 Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
