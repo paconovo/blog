@@ -6,8 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\UserController;
 
 //principal
 Route::get('/', [HomeController::class, 'index'])->name('home.index');
@@ -32,6 +32,11 @@ Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
         Route::resource('comments', 'CommentController')
         ->only('index', 'destroy')
         ->names('comments');
+        
+        //usuarios
+        Route::resource('users', 'UserController')
+        ->except('create', 'store', 'show')
+        ->names('users');
 });
 
 //Articulos

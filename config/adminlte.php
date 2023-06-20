@@ -340,6 +340,12 @@ return [
             'icon' => 'fas fa-poll',
             'active' => ['admin/comments*'],
         ],
+        [
+            'text' => 'Usuarios',
+            'route'  => 'users.index',
+            'icon' => 'fas fa-users',
+            'active' => ['admin/users*'],
+        ],
     ],
 
     /*
