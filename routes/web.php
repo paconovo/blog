@@ -39,6 +39,11 @@ Route::namespace('App\Http\Controllers')->prefix('admin')->group(function() {
         Route::resource('users', 'UserController')
         ->except('create', 'store', 'show')
         ->names('users');
+        
+        //Roles
+        Route::resource('roles', 'RoleController')
+        ->except('show')
+        ->names('roles');
 });
 
 //Articulos
