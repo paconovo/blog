@@ -93,7 +93,7 @@ class RoleController extends Controller
             'name' => $request->name
         ]);
 
-        $role->prmissions()->sync($request->permissions);
+        $role->permissions()->sync($request->permissions);
 
         return redirect()->action([RoleController::class, 'index'])
                         ->with('success-update', 'Rol modificado con éxito');

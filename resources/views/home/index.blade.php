@@ -15,10 +15,9 @@
         <h2>BLOG</h2>
     </div>
     <div class="column2">
-        <p>Hemos ayudado a más de 1 millon de personas a crecer 
-           profesionalmente. Estos artículos comparten concejos
-           para la búsqueda de empleo, la productividad y el éxito 
-           laboral en diferentes áreas del conocimiento.</p>
+        <p>Blog de infomática.
+            Para practicar Laravel
+        </p>
     </div>
 </div>
 
